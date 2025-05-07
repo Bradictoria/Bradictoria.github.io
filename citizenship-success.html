@@ -2,82 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Citizenship Registration – Bradictoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bradictoria Citizenship Form</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
     }
-
-    .container {
-      background-color: white;
-      padding: 30px;
-      max-width: 600px;
-      margin: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #2c3e50;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, textarea {
+    iframe {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      background-color: #007bff;
-      color: white;
-      padding: 12px 20px;
+      height: 100%;
       border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Citizenship Registration</h2>
-    <p>🎉 Congratulations on passing the Bradictoria Citizenship Quiz!</p>
-    <p>Please complete the form below to finalize your citizenship request:</p>
-
-    <form action="https://formspree.io/f/mnnddpgl" method="POST">
-      <!-- Replace 'your-form-id' with the ID from your Formspree account -->
-
-      <!-- Redirect to thank-you page after form submission -->
-      <input type="hidden" name="_redirect" value="https://bradictoria.github.io/thankyou.html">
-
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="reason">Why do you want to be a citizen of Bradictoria?</label>
-      <textarea id="reason" name="reason" rows="5" required></textarea>
-
-      <button type="submit">Submit Application</button>
-    </form>
-  </div>
+  <iframe src="https://tally.so/r/wA0DPD" loading="lazy" title="Bradictoria Citizenship Form"></iframe>
 
 </body>
 </html>
+
