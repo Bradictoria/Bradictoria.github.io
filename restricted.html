@@ -164,13 +164,27 @@
       const password = document.getElementById("password").value;
       const error = document.getElementById("error-message");
 
-      if (password === "Birth of Democracy") {
+      if (password === "Freedom Conquers All") {
         document.getElementById("login-box").style.display = "none";
         document.getElementById("link-list").style.display = "block";
       } else {
         error.textContent = "Access Denied: Incorrect passcode.";
       }
     }
+
+    // Disable right-click
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    // Block dev tools and view source shortcuts
+    document.addEventListener("keydown", function(e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ['U', 'S'].includes(e.key.toUpperCase()))
+      ) {
+        e.preventDefault();
+      }
+    });
   </script>
 
 </body>
