@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>War Plans – Bradictoria</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #0ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: linear-gradient(145deg, #050505, #1a1a1a);
+    }
+    h1, h2, p { text-align: center; }
+    .box {
+      background-color: #111;
+      border: 2px solid #0ff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #0ff3;
+      width: 90%;
+      max-width: 400px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    input {
+      background-color: #222;
+      color: #0ff;
+      border: none;
+    }
+    button {
+      background-color: #0ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .error { color: red; margin-top: 10px; }
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal-content {
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #f00;
+      box-shadow: 0 0 15px red;
+    }
+    .yes-btn, .no-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .yes-btn { background-color: #ff0033; color: white; }
+    .no-btn { background-color: #00ff66; color: black; }
+  </style>
+</head>
+<body>
+
+  <!-- Spy popup -->
+  <div id="spy-modal" class="modal">
+    <div class="modal-content">
+      <h2>🕵️ Are you a spy?</h2>
+      <button class="yes-btn" onclick="spyResponse()">Yes</button>
+      <button class="no-btn" onclick="grantAccess()">No</button>
+    </div>
+  </div>
+
+  <!-- Restricted content -->
+  <div id="restricted-content" style="display: none;">
+    <div class="box">
+      <h2>⚔️ War Plans Access</h2>
+      <p>Enter your clearance code.</p>
+      <input type="password" id="password" placeholder="Enter passcode..." />
+      <button onclick="checkPassword()">Unlock</button>
+      <p class="error" id="error-message"></p>
+    </div>
+  </div>
+
+  <script>
+    function spyResponse() {
+      alert("🛑 Access Denied. Spies are not allowed!");
+    }
+
+    function grantAccess() {
+      document.getElementById('spy-modal').style.display = 'none';
+      document.getElementById('restricted-content').style.display = 'flex';
+    }
+
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const error = document.getElementById("error-message");
+
+      if (password === "bradwar123") {
+        window.location.href = "war-plans-content.html";
+      } else {
+        error.textContent = "Access Denied: Incorrect passcode.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+from pathlib import Path
+
+# HTML content for the War Plans page
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>War Plans – Bradictoria</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #0ff;
+      text-align: center;
+    }
+    .section {
+      background-color: #111;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 0 10px #0ff4;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛡️ War Plans</h1>
+
+  <div class="section">
+    <h2>🔺 Invasion Plan: Operation Thunderfall – Arcadia</h2>
+    <p><strong>Objective:</strong> Secure strategic control of Arcadia’s capital and communication networks to establish territorial dominance and disrupt enemy command infrastructure.</p>
+    <ul>
+      <li><strong>Phase 1: Recon & Disruption</strong>
+        <ul>
+          <li>Deploy reconnaissance drones and covert BSO agents to map out enemy infrastructure.</li>
+          <li>Launch cyber-espionage efforts to disrupt communication lines.</li>
+          <li>Sabotage key fuel depots and supply chains at night.</li>
+        </ul>
+      </li>
+      <li><strong>Phase 2: Coordinated Assault</strong>
+        <ul>
+          <li>Use airborne units to secure high ground and neutralize air defenses.</li>
+          <li>Launch pincer movement from north and west to encircle the capital.</li>
+          <li>Storm government centers with ground troops using non-lethal force.</li>
+        </ul>
+      </li>
+      <li><strong>Phase 3: Occupation & Transition</strong>
+        <ul>
+          <li>Establish a provisional command center.</li>
+          <li>Broadcast control over public communications.</li>
+          <li>Deploy propaganda units promoting unity under Bradictoria.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🛡️ Defensive Strategy: Operation Iron Shield</h2>
+    <p><strong>Objective:</strong> Repel incursions, protect civilians, and maintain national infrastructure integrity.</p>
+    <ul>
+      <li><strong>Tier 1: Early Detection</strong>
+        <ul>
+          <li>Expand satellite surveillance and radar coverage.</li>
+          <li>Maintain 24/7 intelligence watch team.</li>
+        </ul>
+      </li>
+      <li><strong>Tier 2: Mobilization</strong>
+        <ul>
+          <li>Activate citizen militia and relocate command staff to Fort Obsidian.</li>
+          <li>Implement national blackout protocol.</li>
+        </ul>
+      </li>
+      <li><strong>Tier 3: Counter-Offensive</strong>
+        <ul>
+          <li>Deploy armored units to chokepoints.</li>
+          <li>Use EMP drones against enemy electronics.</li>
+          <li>Reinforce urban centers with anti-air defenses.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
+"""
+
+# Save to a file
+output_path = Path("/mnt/data/war-plans.html")
+output_path.write_text(html_content)
+output_path.name
+
