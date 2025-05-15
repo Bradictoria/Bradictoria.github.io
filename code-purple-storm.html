@@ -19,7 +19,7 @@
       padding: 2rem;
       border-radius: 15px;
       max-width: 800px;
-      margin: auto;
+      margin: 2rem auto;
       background-color: #111;
       box-shadow: 0 0 25px #ff00ff66;
     }
@@ -53,28 +53,48 @@
     strong {
       color: #ff99ff;
     }
+
+    /* Separate Code Iron Shield styling */
+    .iron-shield-container {
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 25px #00ffff66;
+      margin-top: 3rem;
+    }
+
+    .iron-shield-active {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="purple-storm">
     <h1>⚠️ Code Purple Storm</h1>
-    <div id="status" class="status">Loading status...</div>
-    <div id="desc"></div>
+    <div id="status-purple" class="status">Loading status...</div>
+    <div id="desc-purple"></div>
+  </div>
+
+  <div class="container iron-shield-container" id="iron-shield">
+    <h1>🛡️ Code Iron Shield</h1>
+    <div id="status-iron" class="status">Loading status...</div>
+    <div id="desc-iron"></div>
   </div>
 
   <script>
-    // Toggle this value to true to activate Code Purple Storm
-    const isActive = true; // <<< SET TO false TO DEACTIVATE
+    // Toggle these to activate/deactivate each code
+    const isPurpleStormActive = false;  // Set false to deactivate
+    const isIronShieldActive = true;  // Set false to deactivate
 
-    const statusElement = document.getElementById('status');
-    const descElement = document.getElementById('desc');
+    // Elements for Purple Storm
+    const statusPurple = document.getElementById('status-purple');
+    const descPurple = document.getElementById('desc-purple');
 
-    if (isActive) {
-      statusElement.textContent = "🚨 Code Purple Storm is ACTIVE";
-      statusElement.classList.add("active");
+    if (isPurpleStormActive) {
+      statusPurple.textContent = "🚨 Code Purple Storm is ACTIVE";
+      statusPurple.classList.add("active");
 
-      descElement.innerHTML = `
+      descPurple.innerHTML = `
         <p><strong>STATUS:</strong> National State of Emergency</p>
         <p>Code Purple Storm has been enacted. This is the highest level of emergency protocol issued by the government of Bradictoria in response to a severe internal or external threat.</p>
         <p><strong>All military units</strong> are on high alert. Civilian movement is restricted. Essential services have shifted to wartime protocol. All communications are under state supervision.</p>
@@ -89,11 +109,41 @@
         <p><strong>Remain indoors. Comply with all directives. Democracy stands strong in the storm.</strong></p>
       `;
     } else {
-      statusElement.textContent = "✅ Code Purple Storm is NOT Active";
-      statusElement.classList.add("inactive");
-      descElement.innerHTML = `
+      statusPurple.textContent = "✅ Code Purple Storm is NOT Active";
+      statusPurple.classList.add("inactive");
+      descPurple.innerHTML = `
         <p>Bradictoria is operating under standard conditions. No emergency protocol is currently in effect.</p>
         <p>Continue regular activity and monitor official channels for future alerts.</p>
+      `;
+    }
+
+    // Elements for Iron Shield
+    const statusIron = document.getElementById('status-iron');
+    const descIron = document.getElementById('desc-iron');
+
+    if (isIronShieldActive) {
+      statusIron.textContent = "🛡️ Code Iron Shield is ACTIVE";
+      statusIron.classList.add("iron-shield-active");
+
+      descIron.innerHTML = `
+        <p><strong>STATUS:</strong> Internal Security Protocol</p>
+        <p>Code Iron Shield is activated to maintain internal stability and protect critical infrastructure within Bradictoria.</p>
+        <p><strong>Focus Areas:</strong></p>
+        <ul>
+          <li>Heightened surveillance and intelligence gathering</li>
+          <li>Protection of governmental and energy facilities</li>
+          <li>Enhanced coordination among civil defense units</li>
+          <li>Rapid response to internal disturbances and threats</li>
+          <li>Maintaining public order and essential services</li>
+        </ul>
+        <p><strong>Civilians are urged to cooperate fully with security forces and report any suspicious activity.</strong></p>
+      `;
+    } else {
+      statusIron.textContent = "✅ Code Iron Shield is NOT Active";
+      statusIron.classList.add("inactive");
+      descIron.innerHTML = `
+        <p>Internal security systems are functioning normally.</p>
+        <p>Maintain vigilance and continue following community safety guidelines.</p>
       `;
     }
   </script>
