@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bradictoria Citizenship Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bradictoria Citizenship Quiz</h1>
+  <form id="quizForm">
+
+    <div class="question">
+      <div class="question-title">1. What is the motto of Bradictoria?</div>
+      <label><input type="radio" name="q1" value="a"> Freedom and Unity</label>
+      <label><input type="radio" name="q1" value="b"> Liberty and Strength</label>
+      <label><input type="radio" name="q1" value="c"> The Birth of Democracy</label>
+      <label><input type="radio" name="q1" value="d"> For Honor and Glory</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">2. What is Bradictoria?</div>
+      <label><input type="radio" name="q2" value="a"> A city-state</label>
+      <label><input type="radio" name="q2" value="b"> A sovereign nation</label>
+      <label><input type="radio" name="q2" value="c"> A historical province</label>
+      <label><input type="radio" name="q2" value="d"> A virtual community only</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">3. Who holds the ultimate authority in Bradictoria?</div>
+      <label><input type="radio" name="q3" value="a"> Parliament</label>
+      <label><input type="radio" name="q3" value="b"> The Emperor</label>
+      <label><input type="radio" name="q3" value="c"> The Citizens</label>
+      <label><input type="radio" name="q3" value="d"> The Military Council</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">4. What is the national animal featured on the coat of arms?</div>
+      <label><input type="radio" name="q4" value="a"> Eagle</label>
+      <label><input type="radio" name="q4" value="b"> Lion</label>
+      <label><input type="radio" name="q4" value="c"> Horse</label>
+      <label><input type="radio" name="q4" value="d"> Dragon</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">5. What do Bradictoria's citizens value?</div>
+      <label><input type="radio" name="q5" value="a"> Totalitarian rule</label>
+      <label><input type="radio" name="q5" value="b"> Passive governance</label>
+      <label><input type="radio" name="q5" value="c"> Active participation and leadership</label>
+      <label><input type="radio" name="q5" value="d"> Economic dominance</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">6. What color is featured prominently in the Bradictorian flag?</div>
+      <label><input type="radio" name="q6" value="a"> Blue</label>
+      <label><input type="radio" name="q6" value="b"> Purple</label>
+      <label><input type="radio" name="q6" value="c"> Black</label>
+      <label><input type="radio" name="q6" value="d"> Green</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">7. What type of government structure does Bradictoria have?</div>
+      <label><input type="radio" name="q7" value="a"> Absolute monarchy</label>
+      <label><input type="radio" name="q7" value="b"> Oligarchy</label>
+      <label><input type="radio" name="q7" value="c"> Formal structure with Emperor at the head</label>
+      <label><input type="radio" name="q7" value="d"> Tribal democracy</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">8. Which of the following is NOT a core value of Bradictoria?</div>
+      <label><input type="radio" name="q8" value="a"> Strength</label>
+      <label><input type="radio" name="q8" value="b"> Power</label>
+      <label><input type="radio" name="q8" value="c"> Chaos</label>
+      <label><input type="radio" name="q8" value="d"> Justice</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">9. What does Bradictoria welcome?</div>
+      <label><input type="radio" name="q9" value="a"> Corporate investors</label>
+      <label><input type="radio" name="q9" value="b"> Those who value active participation</label>
+      <label><input type="radio" name="q9" value="c"> Outsiders only</label>
+      <label><input type="radio" name="q9" value="d"> Private armies</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">10. What symbolizes Bradictoria’s spirit?</div>
+      <label><input type="radio" name="q10" value="a"> Its gold reserves</label>
+      <label><input type="radio" name="q10" value="b"> Its traditional dances</label>
+      <label><input type="radio" name="q10" value="c"> Its commitment to democracy</label>
+      <label><input type="radio" name="q10" value="d"> Its foreign allies</label>
+    </div>
+
+    <button type="button" onclick="gradeQuiz()">Submit Answers</button>
+  </form>
+
+  <script>
+    const answers = {
+      q1: "c",
+      q2: "b",
+      q3: "b",
+      q4: "c",
+      q5: "c",
+      q6: "b",
+      q7: "c",
+      q8: "c",
+      q9: "b",
+      q10: "c",
+    };
+
+    function gradeQuiz() {
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+
+      if (score >= 6) {
+        window.location.href = "citizenship-success.html";
+      } else {
+        window.location.href = "citizenship-failure.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

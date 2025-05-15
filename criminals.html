@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Most Wanted – Bradictoria</title>
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+      background-image: linear-gradient(135deg, #1a1a1a, #050505);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff0066;
+    }
+
+    .criminal-card {
+      background-color: #111;
+      border: 2px solid #555;
+      padding: 1rem;
+      margin: 1rem auto;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 0 10px #0ff4;
+      position: relative;
+    }
+
+    .criminal-card h2 {
+      color: #0ff;
+    }
+
+    .criminal-card p {
+      margin: 5px 0;
+      color: #ccc;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #f0f;
+    }
+
+    .priority-flag {
+      background-color: #ff0033;
+      color: white;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      box-shadow: 0 0 10px red;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Bradictoria's Most Wanted</h1>
+
+  <div id="criminal-list"></div>
+
+  <script>
+    const criminals = [
+      {
+        name: "Darius Thorn",
+        crimes: "Treason, Cyber Espionage, Unauthorized Military Access",
+        location: "Outer District 5, Bradictoria",
+        description: "Former intelligence officer turned rogue. Known for hacking secure military networks.",
+        highPriority: true
+      },
+      {
+        name: "Lira Voss",
+        crimes: "Smuggling, Illegal Weapon Manufacturing",
+        location: "Border near Arcadia",
+        description: "Arms dealer with underground connections. Believed to be organizing resistance cells.",
+        highPriority: false
+      },
+      {
+        name: "Talon Reeve",
+        crimes: "Conspiracy, Attempted Coup, Propaganda Distribution",
+        location: "Unknown – believed to be in hiding",
+        description: "Political agitator and ex-council member. Leads dissident movements against Bradictorian rule.",
+        highPriority: true
+      }
+    ];
+
+    const container = document.getElementById("criminal-list");
+
+    criminals.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "criminal-card";
+
+      if (c.highPriority) {
+        const flag = document.createElement("div");
+        flag.className = "priority-flag";
+        flag.textContent = "HIGH PRIORITY";
+        card.appendChild(flag);
+      }
+
+      card.innerHTML += `
+        <h2>Subject: ${c.name}</h2>
+        <p><span class="label">Crimes:</span> ${c.crimes}</p>
+        <p><span class="label">Last Known Location:</span> ${c.location}</p>
+        <p><span class="label">Description:</span> ${c.description}</p>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
+
