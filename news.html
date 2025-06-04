@@ -3,6 +3,50 @@
 
   <div style="max-width: 900px; margin: auto; display: grid; gap: 30px;
 
+<style>
+@keyframes pulseBorder {
+  0% { border-left-color: #f00; }
+  50% { border-left-color: #f55; }
+  100% { border-left-color: #f00; }
+}
+.article-alert {
+  background-color: #111;
+  padding: 25px 30px;
+  border-left: 6px solid #f00;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #f004;
+  animation: pulseBorder 1.5s infinite;
+  background-image: url('/images/imperial_seal_faint.png'); /* Optional watermark */
+  background-size: cover;
+  background-blend-mode: overlay;
+  position: relative;
+  overflow: hidden;
+}
+.article-alert img {
+  width: 80px;
+  float: right;
+  margin-left: 15px;
+  opacity: 0.8;
+}
+</style>
+
+<article class="article-alert">
+  <img src="/images/bradictoria_seal.png" alt="Imperial Seal">
+  <h2 style="font-size: 1.5rem; margin-bottom: 10px;">🚨 Emergency Decree: Attempted Assassination of the Emperor</h2>
+  <p style="font-size: 1rem; line-height: 1.6;">
+    The Imperial Government of Bradictoria confirms a cowardly act of treason has been committed. An assassin, linked to a threatening email previously received by Imperial authorities, attempted to murder His Imperial Majesty by poisoning his drinking water.
+  </p>
+  <p style="font-size: 1rem; line-height: 1.6;">
+    The Emperor was immediately transported to a classified military medical facility, where he remains hospitalized under intensive care. Imperial physicians have confirmed the presence of a rare toxin introduced via His Majesty's water supply.
+  </p>
+  <p style="font-size: 1rem; line-height: 1.6;">
+    In response to this heinous crime, the Empire has enacted full security lockdowns. <strong>Code Iron Shield</strong> remains active. All state defenses are on high alert, and the Imperial Intelligence Directorate is investigating all leads with urgency and resolve.
+  </p>
+  <p style="font-size: 1rem; line-height: 1.6;">
+    The Crown issues this message to all citizens and enemies alike: <em>Bradictoria does not bend. We will not be terrorized. The Emperor shall survive — and vengeance will be absolute.</em>
+  </p>
+  <p style="font-size: 0.9rem; margin-top: 10px; color: #aaa;">🕒 Logged: June 3, 2025 | 📍 Issued by the Imperial Council on behalf of the Crown</p>
+</article>
 
     
     <article style="background-color: #111; padding: 25px 30px; border-left: 6px solid #f00; border-radius: 10px; box-shadow: 0 0 20px #f004;">
